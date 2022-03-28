@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skin Glo</title>
+    <meta charset="UTF-8">
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!-- javascript -->
+    <script src="main.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <!-- top row (header, nav) -->
+    <div id="top_row">
+      <header>
+        <a href="index.html" title="home page">Skin Glo</a>
+        <a href="cart.html" title="cart page">
+          <img class="cart_img" alt="cart icon" src="images/cart.png"/>
+        </a>
+        <p id="shoppingcartlen">3</p>
+        <a href="help.html" title="help page">
+          <img class="help_img" alt="help icon" src="images/help.png"/>
+        </a>
+        <a href="account.html" title="account page">
+          <img class="account_img" alt="account icon" src="images/account.png"/>
+        </a>
+      </header>
+      <nav>
+        <a href="skincare.html" title="skincare page">Skincare</a> |
+        <a href="makeup.html" title="makeup page">Makeup</a> |
+        <a href="accessories.html" title="accessories page">Accessories</a> |
+        <a href="sale.html" title="sale page">Sale</a>
+      </nav>
+      <br>
+    </div>
+    <!-- product details -->
+    <div class="content">
+      <a href="skincare.html" title="skincare page">Skincare</a> > Product
+      <br><br>
+      <div class="row">
+        <div class="column">
+          <img class="pp1_img" id="product3_image" alt="first product picture" src="images/pp1.png"/>
+          <br><br>
+          <img class="mini_img" alt="mini first product picture" src="images/pp1.png"/>
+          <img class="mini_img" alt="mini first product picture" src="images/pp2.png"/>
+          <img class="mini_img" alt="mini first product picture" src="images/pp3.png"/>
+        </div>
+        <div class="column">
+          <h1 id="product_name">Tea Eye Gel Patch</h1>
+          <h4>JAYJUN</h4>
+
+          <p>Restore your under eyes with JayJun's Tea Hydrogel Eye Patches. The hibiscus flower extract brightens the eyes by evening out the skin tone while calming and firming the skin.</p>
+          <h3>$9.99</h3>
+          <p id="type">Type: </p><p id="flavor">Roselle</p>
+          <img class="flavor_choice" id ="Roselle" alt="mini first product picture" src="images/pp2.png" onclick="switch_image(1)"/>
+          <img class="flavor_choice" id="GreenTea" alt="mini first product picture" src="images/p2p1.png" onclick="switch_image(2)"/>
+          <br><br>
+
+          <div class="counter">
+            <span class="down" onClick='decreaseCount(event, this)'>-</span>
+            <input type="text" value="1" id="counter_count">
+            <span class="up" onClick='increaseCount(event, this)'>+</span>
+          </div>
+          <br><br><br>
+
+          <button class="addtocart_button" type="button" onclick="add_to_cart()" ><span>Add to Cart</span></button>
+
+          <!-- displaying whats in cart -->
+          <p id="shoppingcart"></p>
+
+          <br><br><br><hr>
+          <h2>Comments</h2>
+          <h5>14323 Reviews</h5>
+
+          <p>Alyssa R.: Have used on my face and neck. A lot of moisture and many in the pack. Haven’t used enough to see full affects yet but first few times were refreshing.</p>
+          <p>Ariadna M.: I have been using these patches for a week, the skin around my eyes looks shinny.</p>
+        </div>
+      </div>
+    </div>
+
+    <br><br><br>
+    <!-- footer -->
+    <footer>
+      <p>Skin Glo © 2022</p>
+    </footer>
+  </body>
+
+</html>

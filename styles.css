@@ -1,0 +1,307 @@
+/* top row */
+#top_row header {
+  color: #1AA684;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 2%;
+  background-color: white;
+}
+
+#top_row nav {
+  background-color: #92C6B9;
+  font-size: 25px;
+  padding: 1.0%;
+  padding-left: 3%;
+  margin: 0%;
+}
+
+/* body */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #D9EDE8;
+  margin:0px;
+  padding:0px;
+}
+
+/* nav and header links */
+nav a:link {
+  color: black;
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #cfffec;
+
+}
+
+nav a.selected{
+  color: white;
+}
+
+header a:link {
+  color: #1AA684;
+  text-decoration: none;
+  font-size: 40px;
+  margin-left: 10px;
+}
+
+header a:visited {
+  color: #1AA684;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #1AA684;
+
+}
+
+header a.selected{
+  color: #1AA684;
+}
+
+.content{
+  margin-left: 50px;
+}
+
+.form{
+  width: 30%;
+  margin: auto;
+}
+
+#create_link {
+  color: black;
+  font-size: 13px;
+}
+
+#login_label{
+  font-size: 25px;
+}
+
+.button_col{
+  flex: 50%;
+  padding: 10px;
+}
+
+.button_col img{
+  width: 80%;
+}
+
+.button_row{
+  display: flex;
+}
+
+.button_row a{
+  color: black;
+  text-decoration: none;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  background-color:black;
+  padding:20px;
+  padding-bottom: 2%
+}
+
+.account_img{
+  width: 2.5%;
+  float: right;
+  padding-right: 2%;
+  padding-top: 0.5%;
+}
+
+.help_img{
+  width: 2.5%;
+  float: right;
+  padding-right: 2%;
+  padding-top: 0.5%;
+}
+
+.cart_img{
+  width: 2.5%;
+  float: right;
+  padding-right: 2%;
+  padding-top: 0.5%;
+}
+
+.profile_image{
+  width: 10%;
+}
+
+.account_content{
+  text-align: center;
+}
+
+.account_content button{
+  width: 30%;
+  height: 50px;
+  margin: 0.75%;
+  background-color: #92C6B9;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* shopping cart table */
+table{
+  padding-left: 8%;
+  width: 80%;
+  border-collapse: collapse;
+  margin-left: 4%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #92C6B9;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+.profile_left{
+  float: left;
+}
+
+.profile_right{
+  float: right;
+  padding-right: 60%;
+}
+
+.prof_image{
+  padding: 15%;
+  border: 1px solid black;
+  width: 80%;
+}
+
+hr{
+  border: 0.5px solid black;
+}
+
+.labeler{
+  font-size: 12px;
+  color: #636363;
+}
+
+.edit_button{
+  float: right;
+  margin-right: 50%;
+  background-color: #92C6B9;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  color: black;
+}
+
+.login_button{
+  background-color: #92C6B9;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.pp1_img{
+  width: 85%;
+}
+
+.mini_img{
+  width: 15%;
+  border-radius: 10px;
+}
+
+.flavor_choice{
+  width: 10%;
+  border-radius: 5px;
+}
+
+.addtocart_button{
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  width: 25%;
+  height: 35px;
+  margin:0px;
+  padding:0px;
+}
+
+.counter_button{
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  width: 10%;
+  height: 35px;
+  margin:0px;
+  padding:0px;
+}
+
+#shoppingcartlen{
+  color: black;
+  font-size: 11px;
+  float: right;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  padding: 4px;
+  border: 2px solid #000;
+  text-align: center;
+  background-color: #ff8282;
+}
+
+ /* counter */
+ /* referenced from https://dev.to/stackfindover/products-quantity-counter-using-html-css-javascript-663 */
+.counter {
+  width: 150px;
+  margin: auto;
+  display: flex;
+  float: left;
+}
+.counter input {
+  width: 50px;
+  border: 0;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: center;
+  background: #0052cc;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  appearance: none;
+  outline: 0;
+  border: 1px solid #000;
+}
+.counter span {
+  display: block;
+  font-size: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+  background-color: #92C6B9;
+  font-family: 'Montserrat', sans-serif;
+  user-select: none;
+  border: 1px solid #000;
+}
+
+.cart_product_img{
+  width: 20%;
+  margin: 10px;
+  margin-right: 30px;
+  float: left;
+}
