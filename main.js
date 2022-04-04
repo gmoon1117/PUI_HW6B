@@ -45,10 +45,14 @@ function addCart(name, price) {
   loadCount();
 }
 
-function removeProduct(name){
+function removeProduct(name, rowid){
+  alert("hello");
   let storageProducts = JSON.parse(localStorage.getItem('products'));
   let products = storageProducts.filter(product => product.name !== name );
   localStorage.setItem('products', JSON.stringify(products));
+  var row = document.getElementById(rowid);
+  row.parentNode.removeChild(row);
+  loadCart();
 }
 
 // object
@@ -89,6 +93,7 @@ function loadCart(){
     var quantity = value[1];
 
     var row =  shoppingTable.insertRow(1);
+    row.id = `${key}-row`;
     var col1 = row.insertCell(0);
     var col2 = row.insertCell(1);
     var col3 = row.insertCell(2);
@@ -96,7 +101,16 @@ function loadCart(){
     col1.innerHTML = key;
     col2.innerHTML = quantity;
     col3.innerHTML = price;
-    
+
+    var btn = document.createElement("button");
+    btn.onclick = function(){
+      removeProduct(key, row.id);
+    };
+    var t = document.createTextNode("Delete");
+    btn.appendChild(t);
+    col4.id = "placer";
+    //col4.innerHTML = btn;
+    document.getElementById('placer').appendChild(btn);
   }
 
 
