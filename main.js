@@ -1,20 +1,3 @@
-//variables
-var a = ["Teatree Care Solution", "Soft Foot Peeling Socks", "Tea Eye Gel Patch"];
-var len = 3;
-
-// add function when users press "add to cart"
-function add_to_cart() {
-  var name = document.getElementById("product_name").innerHTML
-  var x = document.getElementById("counter_count").value
-  for (var i=0; i<x; i++) {
-    a.push(name);
-  }
-  //a.push(name);
-  //document.getElementById("shoppingcart").innerHTML = a;
-  len = a.length;
-  document.getElementById("shoppingcartlen").innerHTML = len;
-}
-
 // switches image when flavor/type is changed
 function switch_image(x) {
   // current main product image
@@ -49,4 +32,55 @@ function decreaseCount(a, b) {
     value--;
     input.value = value;
   }
+}
+
+//https://stackoverflow.com/questions/55328748/how-to-store-and-retrieve-shopping-cart-items-in-localstorage
+function addCart(name, price) {
+  let products = [];
+  if(localStorage.getItem('products')){
+    products = JSON.parse(localStorage.getItem('products'));
+  }
+  products.push(new Product(name, price));
+  localStorage.setItem('products', JSON.stringify(products));
+  loadCount();
+}
+
+// object
+function Product(name, price) { //, image_alt, image
+  this.name = name;
+  this.price = price;
+  //this.image_alt = image_alt; //"something product"
+  //this.image = image; // "capybara.png"
+}
+
+function loadCart(){
+  let products = [];
+  if(localStorage.getItem('products')){
+    products = JSON.parse(localStorage.getItem('products'));
+  }
+  //document.getElementById("shoppingcart").innerHTML = products;
+  document.getElementById("shoppingcartlen").innerHTML = products.length;
+
+  var shoppingTable = document.getElementById("shopping_table");
+
+  for (let i = 0; i < products.length; i++) {
+    console.log(products[i].name, products[i].price);
+    var row =  shoppingTable.insertRow(1);
+    var col1 = row.insertCell(0);
+    var col2 = row.insertCell(1);
+    var col3 = row.insertCell(2);
+    col1.innerHTML = products[i].name;
+    col2.innerHTML = 1;
+    col3.innerHTML = products[i].price;
+  }
+
+}
+
+function loadCount(){
+  let products = [];
+  if(localStorage.getItem('products')){
+    products = JSON.parse(localStorage.getItem('products'));
+  }
+  //document.getElementById("shoppingcart").innerHTML = products;
+  document.getElementById("shoppingcartlen").innerHTML = products.length;
 }

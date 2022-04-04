@@ -11,7 +11,7 @@
     <script src="main.js" type="text/javascript"></script>
   </head>
 
-  <body>
+  <body onload="loadCart()">
     <!-- top row (header, nav) -->
     <div id="top_row">
       <header>
@@ -19,7 +19,7 @@
         <a href="cart.html" title="cart page">
           <img class="cart_img" alt="cart icon" src="images/cart.png"/>
         </a>
-        <p id="shoppingcartlen">3</p>
+        <p id="shoppingcartlen"></p>
         <a href="help.html" title="help page">
           <img class="help_img" alt="help icon" src="images/help.png"/>
         </a>
@@ -40,59 +40,15 @@
       <h3>Shopping Cart</h3>
     </div>
     <div class="cart_table">
-      <table>
+      <table id="shopping_table">
         <tr>
           <th>Item</th>
           <th>Quantity</th>
           <th>Price</th>
         </tr>
-        <tr>
-          <td>
-            <img class="cart_product_img" alt="A product photo of Teatree Care Solution" src="images/pic8.png"/><br><br>
-            <p class = "cart_product_name">Teatree Care Solution</p>
-          </td>
-          <td>
-            <div class="counter">
-              <span class="down" onClick='decreaseCount(event, this)'>-</span>
-              <input type="text" value="1" id="counter_count">
-              <span class="up" onClick='increaseCount(event, this)'>+</span>
-            </div>
-          </td>
-          <td>$29.99</td>
-        </tr>
-        <tr>
-          <td>
-            <img class="cart_product_img" alt="A product photo of Soft Foot Peeling Socks" src="images/pic7.png"/><br><br>
-            <p class = "cart_product_name">Soft Foot Peeling Socks</p>
-          </td>
-          <td>
-            <div class="counter">
-              <span class="down" onClick='decreaseCount(event, this)'>-</span>
-              <input type="text" value="1" id="counter_count">
-              <span class="up" onClick='increaseCount(event, this)'>+</span>
-            </div>
-          </td>
-          <td>$13.65</td>
-        </tr>
-        <tr>
-          <td>
-            <img class="cart_product_img" alt="A product photo of Tea Eye Gel Patch" src="images/pic3.png"/><br><br>
-            <p class = "cart_product_name">Tea Eye Gel Patch</p>
-          </td>
-          <td>
-            <div class="counter">
-              <span class="down" onClick='decreaseCount(event, this)'>-</span>
-              <input type="text" value="1" id="counter_count">
-              <span class="up" onClick='increaseCount(event, this)'>+</span>
-            </div>
-          </td>
-          <td>$9.99</td>
-        </tr>
       </table>
 
       <p id="shoppingcart"></p>
-
-
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <!-- footer -->
