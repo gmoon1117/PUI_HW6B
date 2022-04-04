@@ -63,16 +63,65 @@ function loadCart(){
 
   var shoppingTable = document.getElementById("shopping_table");
 
+  var pdict = {};
   for (let i = 0; i < products.length; i++) {
-    console.log(products[i].name, products[i].price);
+    console.log(i);
+    if (products[i].name in pdict) {
+       var x = pdict[products[i].name][0];
+       var y = pdict[products[i].name][1];
+       console.log(x);
+       console.log(y);
+       pdict[products[i].name] = [x+products[i].price, y+1];
+    }
+    else {
+      pdict[products[i].name] = [products[i].price, 1];
+      console.log("hello", pdict[products[i].name][0], pdict[products[i].name][1]);
+    }
+  }
+
+  console.log(pdict);
+
+  for(var key in pdict) {
+    //console.log(key, (pdict[key][0], pdict[key][1]));
+    var value = pdict[key];
+    var price = value[0];
+    var quantity = value[1];
+
     var row =  shoppingTable.insertRow(1);
     var col1 = row.insertCell(0);
     var col2 = row.insertCell(1);
     var col3 = row.insertCell(2);
-    col1.innerHTML = products[i].name;
-    col2.innerHTML = 1;
-    col3.innerHTML = products[i].price;
+    col1.innerHTML = key;
+    col2.innerHTML = quantity;
+    col3.innerHTML = price;
+
+  // do something with "key" and "value" variables
   }
+
+  // // display shopping cart
+  // for (x in pdict) {
+  //   name, (price, quantity) = x, pdict[x];
+  //   var row =  shoppingTable.insertRow(1);
+  //   var col1 = row.insertCell(0);
+  //   var col2 = row.insertCell(1);
+  //   var col3 = row.insertCell(2);
+  //   col1.innerHTML = name;
+  //   col2.innerHTML = quantity;
+  //   col3.innerHTML = price;
+  // }
+
+
+
+  // for (let i = 0; i < products.length; i++) {
+  //   console.log(products[i].name, products[i].price);
+  //   var row =  shoppingTable.insertRow(1);
+  //   var col1 = row.insertCell(0);
+  //   var col2 = row.insertCell(1);
+  //   var col3 = row.insertCell(2);
+  //   col1.innerHTML = products[i].name;
+  //   col2.innerHTML = 1;
+  //   col3.innerHTML = products[i].price;
+  // }
 
 }
 
