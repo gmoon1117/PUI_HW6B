@@ -21,16 +21,16 @@ function decreaseCount(a, b) {
 // switches image when flavor/type is changed
 function switch_image(x) {
   // current main product image
- var Image_Id = document.getElementById('product3_image');
+ var Image_Id = document.getElementById('product_image');
  // switch to green tea
- if (Image_Id.src.match("images/pp1.png") && x == 2) {
+ if ((Image_Id.src.match("images/pic3.png")||Image_Id.src.match("images/pp1.png")) && x == 2) {
    Image_Id.src = "images/p2p1.png";
-   document.getElementById('flavor').innerHTML="Green Tea";
+   document.getElementById('flavor').innerHTML= "Green Tea";
  }
  // switch to roselle
  else if (Image_Id.src.match("images/p2p1.png") && x == 1) {
    Image_Id.src = "images/pp1.png";
-   document.getElementById('flavor').innerHTML="Roselle";
+   document.getElementById('flavor').innerHTML= "Roselle";
  }
 }
 
@@ -166,7 +166,7 @@ function loadProduct(){
     <img class="mini_img" alt="mini first product picture" src="images/pp3.png"/>`;
 
     document.getElementById("tea_btn").innerHTML =
-    `<button class="addtocart_button" type="button" onclick="addCart('Tea Eye Gel Patch', 9.99)" ><span>Add to Cart</span></button>`
+    `<button class="addtocart_button" type="button" onclick="addCart('Tea Eye Gel Patch', 9.99)" ><span>Add to Cart</span></button>`;
 
     document.getElementById("options").innerHTML = `<p id="type">Type: </p><p id="flavor">Roselle</p>
     <img class="flavor_choice" id ="Roselle" alt="mini first product picture" src="images/pp2.png" onclick="switch_image(1)"/>
