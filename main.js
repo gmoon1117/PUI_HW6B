@@ -34,6 +34,7 @@ function switch_image(x) {
  }
 }
 
+// add product to cart
 //https://stackoverflow.com/questions/55328748/how-to-store-and-retrieve-shopping-cart-items-in-localstorage
 function addCart(name, price) {
   alert("Added to Cart!");
@@ -49,6 +50,7 @@ function addCart(name, price) {
   loadCount();
 }
 
+  // remove product from cart
 function removeProduct(name, rowid){
   alert(`Removing the ${name}!`);
   let storageProducts = JSON.parse(localStorage.getItem('products'));
@@ -59,14 +61,13 @@ function removeProduct(name, rowid){
   loadCart();
 }
 
-// object
-function Product(name, price) { //, image_alt, image
+// object for Product
+function Product(name, price) {
   this.name = name;
   this.price = price;
-  //this.image_alt = image_alt; //"something product"
-  //this.image = image; // "capybara.png"
 }
 
+// object for Product with more variables
 function Product(name, price, img, company, desc){
   this.name = name;
   this.price = price;
@@ -75,23 +76,25 @@ function Product(name, price, img, company, desc){
   this.desc = desc
 }
 
+// load the cart
 function loadCart(){
   let products = [];
   if(localStorage.getItem('products')){
     products = JSON.parse(localStorage.getItem('products'));
   }
-  //document.getElementById("shoppingcart").innerHTML = products;
   document.getElementById("shoppingcartlen").innerHTML = products.length;
   var shoppingTable = document.getElementById("shopping_table");
 
+  // if there are no products, display none + show redirecting link to shop more
   if (products.length == 0){
     var row =  shoppingTable.insertRow(1);
     cell = row.insertCell(0);
     cell.colSpan = "4";
     cell.innerHTML = 'No items in the cart. Shop ' + `<a id="link_pop" href="skincare.html" title="skincare page">here</a>` + "!";
   }
+  // if there are products, display them!
   else{
-    // correct the count
+    // first use dictionary to correct the quantity
     var pdict = {};
     for (let i = 0; i < products.length; i++) {
       if (products[i].name in pdict) {
@@ -104,7 +107,7 @@ function loadCart(){
       }
     }
 
-    // display shopping cart
+    // display the shopping cart using table
     for(var key in pdict) {
       var value = pdict[key];
       var price = value[0];
@@ -127,14 +130,13 @@ function loadCart(){
       var t = document.createTextNode("Delete");
       btn.appendChild(t);
       col4.id = "placer";
-      //col4.innerHTML = btn;
       document.getElementById('placer').appendChild(btn);
-
     }
   }
 
 }
 
+// load the count on all pages
 function loadCount(){
   let products = [];
   if(localStorage.getItem('products')){
@@ -143,6 +145,7 @@ function loadCount(){
   document.getElementById("shoppingcartlen").innerHTML = products.length;
 }
 
+// load the product on the product page, depending on what the user chose
 function loadProduct(){
   loadCount();
   let current = [];
@@ -179,6 +182,7 @@ function loadProduct(){
 
 }
 
+// set the current product the user just clicked
 function set_current(name, price, img, company, desc){
   let current = [];
   if(localStorage.getItem('current')){
