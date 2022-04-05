@@ -50,7 +50,7 @@ function addCart(name, price) {
 }
 
 function removeProduct(name, rowid){
-  alert(`Are you sure you want to remove the ${name}?`);
+  alert(`Removing the ${name}!`);
   let storageProducts = JSON.parse(localStorage.getItem('products'));
   let products = storageProducts.filter(product => product.name !== name );
   localStorage.setItem('products', JSON.stringify(products));
@@ -67,6 +67,14 @@ function Product(name, price) { //, image_alt, image
   //this.image = image; // "capybara.png"
 }
 
+function Product(name, price, img, company, desc){
+  this.name = name;
+  this.price = price;
+  this.img = img;
+  this.company = company;
+  this.desc = desc
+}
+
 function loadCart(){
   let products = [];
   if(localStorage.getItem('products')){
@@ -77,11 +85,10 @@ function loadCart(){
   var shoppingTable = document.getElementById("shopping_table");
 
   if (products.length == 0){
-    console.log("nothing");
     var row =  shoppingTable.insertRow(1);
     cell = row.insertCell(0);
     cell.colSpan = "4";
-    cell.innerHTML = "No items in the cart!";
+    cell.innerHTML = 'No items in the cart. Shop ' + `<a id="link_pop" href="skincare.html" title="skincare page">here</a>` + "!";
   }
   else{
     // correct the count
@@ -122,6 +129,7 @@ function loadCart(){
       col4.id = "placer";
       //col4.innerHTML = btn;
       document.getElementById('placer').appendChild(btn);
+
     }
   }
 
@@ -133,4 +141,49 @@ function loadCount(){
     products = JSON.parse(localStorage.getItem('products'));
   }
   document.getElementById("shoppingcartlen").innerHTML = products.length;
+}
+
+function loadProduct(){
+  loadCount();
+  let current = [];
+  if(localStorage.getItem('current')){
+    current = JSON.parse(localStorage.getItem('current'));
+  }
+
+  document.getElementById("product_name").innerHTML = current[0].name;
+  document.getElementById("product_price").innerHTML = "$" + current[0].price;
+  document.getElementById("product_image").src = current[0].img;
+  document.getElementById("product_company").innerHTML = current[0].company;
+  document.getElementById("product_desc").innerHTML = current[0].desc;
+
+  if (current[0].name == 'Tea Eye Gel Patch'){
+    document.getElementById("tea_pics").innerHTML =
+    `<img class="mini_img" alt="mini first product picture" src="images/pp1.png"/>
+    <img class="mini_img" alt="mini first product picture" src="images/pp2.png"/>
+    <img class="mini_img" alt="mini first product picture" src="images/pp3.png"/>`;
+
+    document.getElementById("tea_btn").innerHTML =
+    `<button class="addtocart_button" type="button" onclick="addCart('Tea Eye Gel Patch', 9.99)" ><span>Add to Cart</span></button>`
+
+    document.getElementById("options").innerHTML = `<p id="type">Type: </p><p id="flavor">Roselle</p>
+    <img class="flavor_choice" id ="Roselle" alt="mini first product picture" src="images/pp2.png" onclick="switch_image(1)"/>
+    <img class="flavor_choice" id="GreenTea" alt="mini first product picture" src="images/p2p1.png" onclick="switch_image(2)"/>`;
+
+    document.getElementById("tea_comments").innerHTML =
+    `<h2>Comments</h2>
+    <h5>14323 Reviews</h5>
+
+    <p>Alyssa R.: Have used on my face and neck. A lot of moisture and many in the pack. Haven’t used enough to see full affects yet but first few times were refreshing.</p>
+    <p>Ariadna M.: I have been using these patches for a week, the skin around my eyes looks shinny.</p>`;
+  }
+
+}
+
+function set_current(name, price, img, company, desc){
+  let current = [];
+  if(localStorage.getItem('current')){
+    current = JSON.parse(localStorage.getItem('current'));
+  }
+  current = [new Product(name, price, img, company, desc)];
+  localStorage.setItem('current', JSON.stringify(current));
 }
